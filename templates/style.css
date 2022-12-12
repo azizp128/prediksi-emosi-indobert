@@ -1,0 +1,154 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --clr-primary-body-bg: hsl(273, 75%, 66%);
+  --clr-primary-bg-grad: hsl(240, 73%, 65%);
+  --fnt-primary-head-titleactive: hsl(238, 29%, 16%);
+
+  font-size: 12px;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: "Kumbh Sans", Courier, monospace;
+  background-color: var(--clr-primary-body-bg);
+}
+
+.card__window__title {
+  color: white;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.card {
+  margin: 2em 2em 0 2em;
+  padding: 1em 0;
+  min-height: 75vh;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.output-window {
+  margin: 0 2.3em;
+  display: grid;
+  grid-template: 50px / auto auto auto;
+  grid-gap: 1em;
+  align-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.card__title {
+  position: absolute;
+  top: 10em;
+  left: 0;
+  right: 0;
+}
+
+.emote {
+  background-color: rgba(177, 156, 156, 0.349);
+  min-width: 2em;
+  padding: 1em;
+  text-align: center;
+}
+
+.input-form {
+  margin-top: 2em;
+}
+
+.input-text {
+  min-width: 60%;
+  height: 2em;
+}
+
+.btn {
+  min-width: 6em;
+  font-size: 1rem;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: aqua;
+  border: 0;
+  margin-left: 0.3em;
+}
+
+.btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.attribution {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 3em;
+}
+
+.attribution a {
+  color: rgb(230, 49, 49);
+}
+
+.text-danger {
+  color: rgb(230, 49, 49);
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 1150px) {
+  body {
+    background-color: var(--clr-primary-bg-grad);
+  }
+
+  .card {
+    padding: 3em;
+    margin: auto;
+    margin-top: 1em;
+    max-width: 1000px;
+  }
+
+  .card__window__title {
+    font-size: 3rem;
+  }
+
+  .output-window {
+    margin: 0 6em;
+  }
+
+  .card__title {
+    font-size: 2em;
+  }
+
+  .input-form {
+    margin-top: 3em;
+  }
+
+  .input-text {
+    min-width: 70%;
+    height: 3em;
+  }
+
+  .btn {
+    min-width: 8em;
+    font-size: 1.3rem;
+    padding: 0.73em;
+    border-radius: 5px;
+    background-color: aqua;
+    border: 0;
+    margin-left: 0.6em;
+  }
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    position: initial;
+    margin-top: 1em;
+  }
+}
