@@ -48,25 +48,27 @@ body {
   align-content: center;
   align-items: center;
   min-height: 60vh;
+  /* border: 2px solid; */
 }
 
-.result {
+.chatBox {
+  max-height: 60vh;
+  max-width: 75vw;
   margin: 0 2.3em;
   display: none;
   flex-direction: column;
-  align-items: flex-start;
   position: absolute;
-  top: 3em;
+  /* border: 2px solid; */
+  overflow: auto;
 }
 
-.result__input {
+.result {
+  margin-bottom: 1em;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
   border: 2px solid;
-  /* float: left; */
-}
-
-.result__output {
-  border: 2px solid;
-  /* float: left; */
+  border-radius: 5px;
 }
 
 .card__title {
@@ -86,9 +88,9 @@ body {
 }
 
 .input-form {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  position: relative;
   margin: 2.3em;
 }
 
@@ -115,9 +117,9 @@ body {
 .icon {
   width: 20px;
   height: 20px;
-  position: absolute;
-  top: 3px;
-  right: 110px;
+  position: relative;
+  top: 6px;
+  right: 25px;
   pointer-events: none;
   z-index: 2;
 }
@@ -144,12 +146,6 @@ body {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   background-clip: padding-box;
 }
-
-/* .error-message {
-  font-size: 0.85rem;
-  color: red;
-  position: absolute;
-} */
 
 .btn {
   min-width: 30%;
@@ -180,7 +176,7 @@ body {
 }
 
 /* Responsive Breakpoints */
-@media (min-width: 1000px) {
+@media (min-width: 600px) {
   body {
     background-color: var(--clr-primary-bg-grad);
   }
@@ -189,6 +185,10 @@ body {
     margin: auto;
     margin-top: 1em;
     max-width: 1000px;
+  }
+
+  .chatBox {
+    min-width: 62vw;
   }
 
   .card__window__title {
@@ -206,11 +206,8 @@ body {
   .icon {
     width: 25px;
     height: 25px;
-    position: absolute;
-    top: 7px;
-    right: 215px;
-    pointer-events: none;
-    z-index: 2;
+    top: 3px;
+    right: 45px;
   }
 
   .attribution {

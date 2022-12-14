@@ -1,15 +1,29 @@
+const chatBox = document.querySelector(".chatBox");
 const inputBox = document.querySelector(".input-text");
-const result = document.querySelector(".result");
-const resultBox = document.querySelector(".input");
 const emoteList = document.querySelectorAll(".emote");
-const emoteTitle = document.querySelector(".card__title");
+const cardTitle = document.querySelector(".card__title");
 const sendBtn = document.querySelector(".btn");
 const errorIcon = document.querySelector(".icon-error");
 const errorMessage = document.querySelector(".error-message");
 
-function showResult() {
-  resultBox.innerHTML = inputBox.value;
+function createAndShowElement(inpVal, outVal) {
+  const input = document.createElement("span");
+  input.className = "input";
+  input.innerHTML = `Input : ${inpVal}`;
+
+  const output = document.createElement("span");
+  output.className = "output";
+  output.innerHTML = `Output : ${outVal}`;
+
+  const result = document.createElement("div");
+  result.className = "result";
   result.style.display = "flex";
+
+  result.appendChild(input);
+  result.appendChild(output);
+  chatBox.appendChild(result);
+
+  chatBox.style.display = "flex";
 
   if (inputBox.classList.contains("input-error")) {
     inputBox.classList.remove("input-error");
@@ -20,7 +34,7 @@ function showResult() {
 function removeEmoteList() {
   emoteList.forEach(function (emote) {
     emote.style.display = "none";
-    emoteTitle.style.display = "none";
+    cardTitle.style.display = "none";
   });
 }
 
@@ -38,11 +52,10 @@ sendBtn.addEventListener("click", (e) => {
 function validateFields() {
   // Check presence of values
   if (inputBox.value.trim() === "") {
-    // errorMessage.innerText = "Cannot be blank";
     errorIcon.classList.remove("hidden");
     inputBox.classList.add("input-error");
   } else {
     removeEmoteList();
-    showResult();
+    createAndShowElement(inputBox.value, inputBox.value);
   }
 }
