@@ -37,6 +37,7 @@ body {
   background-color: white;
   border-radius: 20px;
   text-align: center;
+  position: relative;
 }
 
 .output-window {
@@ -49,14 +50,35 @@ body {
   min-height: 60vh;
 }
 
-.card__title {
+.result {
+  margin: 0 2.3em;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
   position: absolute;
-  top: 10em;
+  top: 3em;
+}
+
+.result__input {
+  border: 2px solid;
+  /* float: left; */
+}
+
+.result__output {
+  border: 2px solid;
+  /* float: left; */
+}
+
+.card__title {
+  display: block;
+  position: absolute;
+  top: 5em;
   left: 0;
   right: 0;
 }
 
 .emote {
+  display: block;
   background-color: rgba(177, 156, 156, 0.349);
   min-width: 2em;
   padding: 1em;
@@ -64,22 +86,78 @@ body {
 }
 
 .input-form {
-  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 2.3em;
 }
 
 .input-text {
-  min-width: 60%;
-  height: 2em;
+  width: 65%;
+  max-height: 4em;
+  color: #2d3748;
+  border: 1px solid #cbd5e0;
+  line-height: 1.25;
+  background-color: white;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.25rem;
 }
 
+.input-text:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 3px;
+  right: 110px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.icon.icon-error {
+  stroke: red;
+}
+
+.input-text::placeholder {
+  color: #a0aec0;
+}
+
+.input-text.input-error {
+  border: 1px solid red;
+}
+
+.input-text.input-error:focus {
+  border: 1px solid red;
+}
+
+.input-text:focus {
+  outline: none;
+  border: 1px solid #a0aec0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background-clip: padding-box;
+}
+
+/* .error-message {
+  font-size: 0.85rem;
+  color: red;
+  position: absolute;
+} */
+
 .btn {
-  min-width: 6em;
+  min-width: 30%;
   font-size: 1rem;
   padding: 0.5em;
   border-radius: 5px;
   background-color: aqua;
   border: 0;
-  margin-left: 0.3em;
 }
 
 .btn:hover {
@@ -102,13 +180,12 @@ body {
 }
 
 /* Responsive Breakpoints */
-@media (min-width: 1150px) {
+@media (min-width: 1000px) {
   body {
     background-color: var(--clr-primary-bg-grad);
   }
 
   .card {
-    padding: 3em;
     margin: auto;
     margin-top: 1em;
     max-width: 1000px;
@@ -116,10 +193,6 @@ body {
 
   .card__window__title {
     font-size: 3rem;
-  }
-
-  .output-window {
-    margin: 0 6em;
   }
 
   .card__title {
@@ -130,19 +203,14 @@ body {
     margin-top: 3em;
   }
 
-  .input-text {
-    min-width: 70%;
-    height: 3em;
-  }
-
-  .btn {
-    min-width: 8em;
-    font-size: 1.3rem;
-    padding: 0.73em;
-    border-radius: 5px;
-    background-color: aqua;
-    border: 0;
-    margin-left: 0.6em;
+  .icon {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 7px;
+    right: 215px;
+    pointer-events: none;
+    z-index: 2;
   }
 
   .attribution {
