@@ -1,1 +1,1 @@
-# sentences-emotion-detection-app
+# sentences-emotion-prediction-app

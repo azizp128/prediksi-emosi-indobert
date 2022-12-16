@@ -56,6 +56,6 @@ function validateFields() {
     inputBox.classList.add("input-error");
   } else {
     removeEmoteList();
-    createAndShowElement(inputBox.value, inputBox.value);
+    createAndShowElement(inputBox.value, chatBox.getAttribute("name"));
   }
 }
