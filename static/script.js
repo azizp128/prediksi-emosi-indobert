@@ -1,4 +1,7 @@
 const chatBox = document.querySelector(".chatBox");
+const result = document.querySelector(".result");
+const inputText = document.querySelector(".input_text");
+const outputText = document.querySelector(".output_text");
 const inputBox = document.querySelector(".input-text");
 const emoteList = document.querySelectorAll(".emote");
 const cardTitle = document.querySelector(".card__title");
@@ -7,23 +10,11 @@ const errorIcon = document.querySelector(".icon-error");
 const errorMessage = document.querySelector(".error-message");
 
 function createAndShowElement(inpVal, outVal) {
-  const input = document.createElement("span");
-  input.className = "input";
-  input.innerHTML = `Input : ${inpVal}`;
-
-  const output = document.createElement("span");
-  output.className = "output";
-  output.innerHTML = `Output : ${outVal}`;
-
-  const result = document.createElement("div");
-  result.className = "result";
-  result.style.display = "flex";
-
-  result.appendChild(input);
-  result.appendChild(output);
-  chatBox.appendChild(result);
+  inputText.innerHTML = `Input : ${inpVal}`;
+  outputText.innerHTML = `Output : ${outVal}`;
 
   chatBox.style.display = "flex";
+  result.style.display = "flex";
 
   if (inputBox.classList.contains("input-error")) {
     inputBox.classList.remove("input-error");
@@ -56,6 +47,6 @@ function validateFields() {
     inputBox.classList.add("input-error");
   } else {
     removeEmoteList();
-    createAndShowElement(inputBox.value, chatBox.getAttribute("name"));
+    createAndShowElement(inputBox.value, inputBox.valut);
   }
 }

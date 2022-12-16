@@ -7,7 +7,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+    <!-- <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="./../static/style.css">
     <title>Emotion Prediction App</title>
 </head>
 
@@ -16,7 +17,12 @@
         <div class="container">
             <h1 class="card__window__title">Emotion Prediction</h1>
             <div class="card">
-                <div class="chatBox">{{ output_text }}</div>
+                <div class="chatBox">
+                    <div class="result">
+                        <span class="input_text"></span>
+                        <span class="output_text"></span>
+                    </div>
+                </div>
                 <h2 class="card__title">Daftar Emosi</h2>
                 <div class="output-window">
                     <div class="emote emote-1">Senang</div>
@@ -26,7 +32,8 @@
                     <div class="emote emote-5">Jijik</div>
                     <div class="emote emote-6">Khawatir</div>
                 </div>
-                <form action="{{url_for('predict')}}" method="post" class="input-form">
+                <!-- <form action="{{url_for('predict')}}" method="post" class="input-form"> -->
+                <form action="" class="input-form">
                     <input type="text" placeholder="Input text" required="required" class="input-text"
                         name="user_input">
                     <svg class="icon icon-error hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -49,7 +56,8 @@
                     href="https://github.com/azizp128" class="text-white fw-bold"> Aziz Prabowo</a>.</p>
         </div>
     </footer>
-    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script> -->
+    <script type="text/javascript" src="./../static/script.js"></script>
 </body>
 
 </html>

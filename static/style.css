@@ -48,23 +48,23 @@ body {
   align-content: center;
   align-items: center;
   min-height: 60vh;
-  /* border: 2px solid; */
+  border: 2px solid;
 }
 
 .chatBox {
+  border: 2px solid;
   max-height: 60vh;
   max-width: 75vw;
   margin: 0 2.3em;
   display: none;
   flex-direction: column;
   position: absolute;
-  /* border: 2px solid; */
   overflow: auto;
 }
 
 .result {
   margin-bottom: 1em;
-  display: none;
+  /* display: none; */
   flex-direction: column;
   align-items: flex-start;
   border: 2px solid;
