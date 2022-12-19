@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -19,9 +20,9 @@
             <div class="card">
                 <div class="chatBox">
                     <label for="input" class="input-label">INPUT</label>
-                    <span class="input"></span>
+                    <span class="input">{{ input_text }}</span>
                     <label for="output" class="output-label">OUTPUT</label>
-                    <span class="output"></span>
+                    <span class="output">{{ output_text }}</span>
                 </div>
                 <h2 class="card__title">Daftar Emosi</h2>
                 <div class="output-window">
@@ -57,10 +58,6 @@
         </div>
     </footer>
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
-    <script>
-        var myVariable = '{{ output_text }}';
-        console.log(myVariable);  // logs 'hello'
-    </script>
     <!-- <script type="text/javascript" src="./../static/script.js"></script> -->
 </body>
 

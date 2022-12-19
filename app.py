@@ -31,8 +31,8 @@ def predict():
 
     output = i2w[label]
 
-    return render_template('index.html', output_text=output)
+    return render_template('index.html', input_text=text, output_text=output)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)

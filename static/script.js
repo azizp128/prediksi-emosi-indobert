@@ -1,6 +1,4 @@
 const chatBox = document.querySelector(".chatBox");
-const input_result = document.querySelector(".input");
-const output_result = document.querySelector(".output");
 const inputBox = document.querySelector(".input-text");
 const emoteList = document.querySelectorAll(".emote");
 const cardTitle = document.querySelector(".card__title");
@@ -9,10 +7,12 @@ const errorIcon = document.querySelector(".icon-error");
 const errorMessage = document.querySelector(".error-message");
 
 function showResult() {
-  input_result.innerHTML = inputBox.value;
-  output_result.innerHTML = myVariable;
-
   chatBox.style.display = "flex";
+
+  if (inputBox.classList.contains("input-error")) {
+    inputBox.classList.remove("input-error");
+    errorIcon.classList.add("hidden");
+  }
 }
 
 function removeEmoteList() {
@@ -21,12 +21,6 @@ function removeEmoteList() {
     cardTitle.style.display = "none";
   });
 }
-
-inputBox.addEventListener("keyup", (e) => {
-  if (e.keyCode === 13) {
-    sendBtn.click();
-  }
-});
 
 function validateFields() {
   // Check presence of values
@@ -38,6 +32,12 @@ function validateFields() {
     showResult();
   }
 }
+
+inputBox.addEventListener("keyup", (e) => {
+  if (e.keyCode === 13) {
+    sendBtn.click();
+  }
+});
 
 sendBtn.addEventListener("click", (e) => {
   validateFields();
