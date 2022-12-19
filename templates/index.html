@@ -16,7 +16,7 @@
         <div class="container">
             <h1 class="card__window__title">Emotion Prediction</h1>
             <div class="card">
-                <div class="chatBox">{{ output_text }}</div>
+                <div class="chatBox"></div>
                 <h2 class="card__title">Daftar Emosi</h2>
                 <div class="output-window">
                     <div class="emote emote-1">Senang</div>
@@ -49,6 +49,10 @@
                     href="https://github.com/azizp128" class="text-white fw-bold"> Aziz Prabowo</a>.</p>
         </div>
     </footer>
+    <script>
+        var myVariable = '{{ output_text }}';
+        console.log(myVariable);  // logs 'hello'
+    </script>
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 
