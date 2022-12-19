@@ -1,7 +1,6 @@
 const chatBox = document.querySelector(".chatBox");
-const result = document.querySelector(".result");
-const inputText = document.querySelector(".input_text");
-const outputText = document.querySelector(".output_text");
+const input_result = document.querySelector(".input");
+const output_result = document.querySelector(".output");
 const inputBox = document.querySelector(".input-text");
 const emoteList = document.querySelectorAll(".emote");
 const cardTitle = document.querySelector(".card__title");
@@ -9,17 +8,11 @@ const sendBtn = document.querySelector(".btn");
 const errorIcon = document.querySelector(".icon-error");
 const errorMessage = document.querySelector(".error-message");
 
-function createAndShowElement(inpVal, outVal) {
-  inputText.innerHTML = `Input : ${inpVal}`;
-  outputText.innerHTML = `Output : ${outVal}`;
+function showResult() {
+  input_result.innerHTML = inputBox.value;
+  output_result.innerHTML = myVariable;
 
   chatBox.style.display = "flex";
-  result.style.display = "flex";
-
-  if (inputBox.classList.contains("input-error")) {
-    inputBox.classList.remove("input-error");
-    errorIcon.classList.add("hidden");
-  }
 }
 
 function removeEmoteList() {
@@ -35,11 +28,6 @@ inputBox.addEventListener("keyup", (e) => {
   }
 });
 
-sendBtn.addEventListener("click", (e) => {
-  validateFields();
-  e.preventDefault();
-});
-
 function validateFields() {
   // Check presence of values
   if (inputBox.value.trim() === "") {
@@ -47,6 +35,11 @@ function validateFields() {
     inputBox.classList.add("input-error");
   } else {
     removeEmoteList();
-    createAndShowElement(inputBox.value, inputBox.valut);
+    showResult();
   }
 }
+
+sendBtn.addEventListener("click", (e) => {
+  validateFields();
+  e.preventDefault();
+});

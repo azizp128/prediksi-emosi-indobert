@@ -52,23 +52,21 @@ body {
 }
 
 .chatBox {
-  border: 2px solid;
   max-height: 60vh;
   max-width: 75vw;
   margin: 0 2.3em;
+  position: absolute;
+  top: 10em;
   display: none;
   flex-direction: column;
-  position: absolute;
-  overflow: auto;
 }
 
-.result {
-  margin-bottom: 1em;
-  /* display: none; */
-  flex-direction: column;
-  align-items: flex-start;
+.input,
+.output {
   border: 2px solid;
-  border-radius: 5px;
+  margin-bottom: 2em;
+  padding: 2em;
+  font-size: 1.5rem;
 }
 
 .card__title {
