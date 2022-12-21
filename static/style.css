@@ -1,0 +1,186 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --clr-primary-body-bg: hsl(273, 75%, 66%);
+  --clr-primary-bg-grad: hsl(240, 73%, 65%);
+  --fnt-primary-head-titleactive: hsl(238, 29%, 16%);
+
+  font-size: 12px;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: "Kumbh Sans", Courier, monospace;
+  background-color: var(--clr-primary-body-bg);
+}
+
+.card__window__title {
+  color: white;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.card {
+  margin: 2em 2em 0 2em;
+  padding: 5em 0;
+  min-height: 75vh;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  border: 2px solid;
+}
+
+.chatBox {
+  max-height: 60vh;
+  max-width: 75vw;
+  margin: 0 2.3em;
+  top: 10em;
+  display: flex;
+  flex-direction: column;
+}
+
+.input,
+.output {
+  border: 2px solid;
+  margin-bottom: 2em;
+  padding: 2em;
+  font-size: 1.5rem;
+}
+
+.input-form {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 2.3em;
+}
+
+.input-text {
+  width: 65%;
+  max-height: 4em;
+  color: #2d3748;
+  border: 1px solid #cbd5e0;
+  line-height: 1.25;
+  background-color: white;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.input-text:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 6px;
+  right: 25px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.icon.icon-error {
+  stroke: red;
+}
+
+.input-text::placeholder {
+  color: #a0aec0;
+}
+
+.input-text.input-error {
+  border: 1px solid red;
+}
+
+.input-text.input-error:focus {
+  border: 1px solid red;
+}
+
+.input-text:focus {
+  outline: none;
+  border: 1px solid #a0aec0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background-clip: padding-box;
+}
+
+.btn {
+  min-width: 30%;
+  font-size: 1rem;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: aqua;
+  border: 0;
+}
+
+.btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.attribution {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 3em;
+}
+
+.attribution a {
+  color: rgb(230, 49, 49);
+}
+
+.text-danger {
+  color: rgb(230, 49, 49);
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 600px) {
+  body {
+    background-color: var(--clr-primary-bg-grad);
+  }
+
+  .card {
+    margin: auto;
+    margin-top: 1em;
+    max-width: 1000px;
+  }
+
+  .chatBox {
+    min-width: 62vw;
+  }
+
+  .card__window__title {
+    font-size: 3rem;
+  }
+
+  .input-form {
+    margin-top: 3em;
+  }
+
+  .icon {
+    width: 25px;
+    height: 25px;
+    top: 3px;
+    right: 45px;
+  }
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    position: initial;
+    margin-top: 1em;
+  }
+}
