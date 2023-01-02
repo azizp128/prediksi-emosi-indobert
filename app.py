@@ -1,24 +1,20 @@
 from flask import Flask, request, render_template
-from transformers import pipeline, AutoTokenizer
-from optimum.onnxruntime import ORTModelForSequenceClassification
+import numpy as np
+import pandas as pd
+import torch
+# import torch.nn.functional as F
+from transformers import BertForSequenceClassification, BertConfig, BertTokenizer
 from utils.data_utils import EmotionDetectionDataset
 
 app = Flask(__name__)
 
 # Instantiate model, load Tokenizer and Config
-quantized_dir = "model/"
+tokenizer = BertTokenizer.from_pretrained('azizp128/bert-emotion-predictor-6-labels') # load pre-trained tokenizer from indobert in huggingface
+config = BertConfig.from_pretrained('azizp128/bert-emotion-predictor-6-labels') # load pre-trained config from azizp128 in huggingface
+model = BertForSequenceClassification.from_pretrained('azizp128/bert-emotion-predictor-6-labels', config=config)
 
-model = ORTModelForSequenceClassification.from_pretrained(quantized_dir, file_name="model_quantized.onnx")
-tokenizer = AutoTokenizer.from_pretrained(quantized_dir)
-cls_pipeline = pipeline("text-classification", model=model, tokenizer=tokenizer)
-
-def print_result(result):
-  actual_label = EmotionDetectionDataset.INDEX2LABEL
-  predicted_label = int(result[0]['label'][-1])
-  label = actual_label[predicted_label]
-  score = result[0]['score']
-  final_result = [label, score]
-  return final_result
+# load emotion labels
+w2i, i2w = EmotionDetectionDataset.LABEL2INDEX, EmotionDetectionDataset.INDEX2LABEL
 
 @app.route('/')
 def home():
@@ -27,12 +23,16 @@ def home():
 @app.route('/',methods=['POST'])
 def predict():
     text = request.form.get('user_input')
-    results = cls_pipeline(text)
-    output = print_result(results)[0]
-    # score = print_result(results)[1]
+    subwords = tokenizer.encode(text)
+    subwords = torch.LongTensor(subwords).view(1, -1).to(model.device)
+
+    logits = model(subwords)[0]
+    label = torch.topk(logits, k=1, dim=-1)[1].squeeze().item()
+
+    output = i2w[label]
 
     return render_template('index.html', input_text=text, output_text=output)
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
