@@ -9,9 +9,9 @@ from utils.data_utils import EmotionDetectionDataset
 app = Flask(__name__)
 
 # Instantiate model, load Tokenizer and Config
-tokenizer = BertTokenizer.from_pretrained('azizp128/bert-emotion-predictor-6-labels') # load pre-trained tokenizer from indobert in huggingface
-config = BertConfig.from_pretrained('azizp128/bert-emotion-predictor-6-labels') # load pre-trained config from azizp128 in huggingface
-model = BertForSequenceClassification.from_pretrained('azizp128/bert-emotion-predictor-6-labels', config=config)
+tokenizer = BertTokenizer.from_pretrained('azizp128/bert-emotion-predictor-6-labels-30k-datasets') # load pre-trained tokenizer from indobert in huggingface
+config = BertConfig.from_pretrained('azizp128/bert-emotion-predictor-6-labels-30k-datasets') # load pre-trained config from azizp128 in huggingface
+model = BertForSequenceClassification.from_pretrained('azizp128/bert-emotion-predictor-6-labels-30k-datasets', config=config)
 
 # load emotion labels
 w2i, i2w = EmotionDetectionDataset.LABEL2INDEX, EmotionDetectionDataset.INDEX2LABEL
