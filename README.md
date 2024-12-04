@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Prediksi-Emosi-App
-=======
-# emotion-predictor-app
->>>>>>> parent of c093fc4 (fix minor issue)
+# Deskripsi
 
 Model Deep Learning berbasis IndoBERT yang dapat memprediksi 6 jenis emosi dalam suatu kalimat, yaitu marah, sedih, senang, cinta, takut, dan jijik. Model ini dilatih pada dataset yang diperoleh dari website Twitter/X  melalui metode crawling, dan dilakukan proses pelabelan secara manual oleh peneliti. 
 
@@ -13,5 +9,5 @@ Hasil akhir model di-upload ke [Hungging Face Hub](https://huggingface.co/docs/h
 - Model on HunggingFace : [Prediksi Emosi](https://huggingface.co/azizp128/prediksi-emosi-indobert)
 - IndoBERT Pre-trained model : [IndoBERT Base Model P1](https://huggingface.co/indobenchmark/indobert-base-p1)
 
-## Screenshot
+# Screenshot
 ![Web Page Screenshot](assets/screenshot.png)
