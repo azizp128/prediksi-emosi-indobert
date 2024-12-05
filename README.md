@@ -10,4 +10,8 @@ Hasil akhir model di-upload ke [Hungging Face Hub](https://huggingface.co/docs/h
 - IndoBERT Pre-trained model : [IndoBERT Base Model P1](https://huggingface.co/indobenchmark/indobert-base-p1)
 
 # Screenshot
-![Web Page Screenshot](assets/screenshot.png)
+## Streamlit
+![Streamlit Web Page Screenshot](assets/streamlit-screenshot.png)
+
+## Gradio
+![Gradio Web Page Screenshot](assets/gradio-screenshot.png)
