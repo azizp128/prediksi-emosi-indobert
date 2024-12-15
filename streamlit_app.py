@@ -8,6 +8,10 @@ device = 0 if torch.cuda.is_available() else -1
 # Load the model using pipeline
 pipe = pipeline("sentiment-analysis", model="azizp128/prediksi-emosi-indobert")
 
+# Initialize session state for result
+if "result" not in st.session_state:
+    st.session_state.result = None
+
 st.markdown(
     """
     <h1 style="text-align: center; font-family: sans-serif;">
@@ -19,16 +23,31 @@ st.markdown(
 )
 
 # Description
-st.write("Emotion Predictor adalah aplikasi yang dapat memprediksi 6 jenis emosi yang muncul dalam sebuah kalimat, yaitu marah, sedih, senang, cinta, takut, dan jijik.")
+st.write("Model deep learning berbasis IndoBERT yang dapat memprediksi 6 jenis emosi yang muncul dalam sebuah kalimat, yaitu marah, sedih, senang, cinta, takut, dan jijik.")
 
 # User input
-user_input = st.text_input("Input:", placeholder="Masukkan teks")
+user_input = st.text_input("Input", placeholder="Masukkan teks")
+
+# Examples
+options = ["Aku senang sekali, karena hari ini ulang tahunku.",
+           "Bahagia hatiku melihat pernikahan putri sulungku yang cantik jelita.",
+           "Aku tidak suka dan merasa jijik jika melihat jenis makanan seperti itu.",
+           "Dasar anak sialan!! Kurang ajar!!"]
+selection = st.segmented_control(
+    "Examples", options
+)
 
 # Prediction
+if selection:
+    st.session_state.result = pipe(selection)
+
 if user_input:
-    result = pipe(user_input)
-    for res in result:
-        st.write("Prediksi:")
-        st.success(res['label'])
-        st.write("Skor:")
-        st.success(res['score'])
+    st.session_state.result = pipe(user_input)
+
+# Display results if available
+if st.session_state.result:
+    for res in st.session_state.result:
+        st.write("Prediksi")
+        st.success(res['label'].capitalize())
+        st.write("Skor")
+        st.success(round(res['score'], 4))
