@@ -47,7 +47,7 @@ if user_input:
 # Display results if available
 if st.session_state.result:
     for res in st.session_state.result:
-        st.write("Prediksi")
+        st.write("Prediction")
         st.success(res['label'].capitalize())
-        st.write("Skor")
+        st.write("Score")
         st.success(round(res['score'], 4))
