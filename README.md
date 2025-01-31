@@ -11,7 +11,7 @@ Hasil akhir model di-upload ke [Hungging Face Hub](https://huggingface.co/docs/h
 
 # Screenshot
 ## Streamlit
-![Streamlit Web Page Screenshot](assets/streamlit-screenshot.png)
+![Streamlit Web Page Screenshot](https://raw.githubusercontent.com/azizp128/prediksi-emosi-indobert/refs/heads/main/assets/streamlit-screenshot.png)
 
 ## Gradio
-![Gradio Web Page Screenshot](assets/gradio-screenshot.png)
+![Gradio Web Page Screenshot](https://raw.githubusercontent.com/azizp128/prediksi-emosi-indobert/refs/heads/main/assets/gradio-screenshot.png)
